@@ -85,5 +85,18 @@ if game.CoreGui:FindFirstChild("Aux_Pineapple") then
     game.CoreGui.Aux_Pineapple:Destroy()
 end
 
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/MirayXS/Aux/main/Pineapple.lua"), true))()
+
+
+-- // Old: loadstring(game:HttpGet(("https://raw.githubusercontent.com/MirayXS/Aux/main/Pineapple.lua"), true))()
+
+
+
+local owner = "MirayXS"
+local branch = "main"
+
+local function webImport(file)
+    return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Aux/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
+end
+
+webImport("Pineapple")
 ```
