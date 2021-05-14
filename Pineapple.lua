@@ -49,7 +49,7 @@ local TextBox_5 = Instance.new("TextButton")
 
 --Properties:
 
-Aux_Pineapple.Parent = game.Players.LocalPlayer:WaitForChild("CoreGui")
+Aux_Pineapple.Parent = game:WaitForChild("CoreGui")
 Aux_Pineapple.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Aux_Pineapple.ResetOnSpawn = false
 
