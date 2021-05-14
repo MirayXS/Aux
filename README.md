@@ -21,6 +21,22 @@ elseif SENTINEL_LOADED then
     print("Sentinel")
 elseif syn then
 	exploit_type = "Synapse X"
+    wait(10)
+    writefile("PineAppleSyn.txt",syn.request({Url="https://github.com/machport/asd/raw/main/UI.rbxm"}).Body)
+function wrap(script)
+    f,e = loadstring(script.Source)
+    print(f,e)
+    env = setmetatable({},{__index= function(self,key) if key == "script" then return script end return getfenv()[key] end})
+    setfenv(f,env)
+    return f
+end
+e = game:GetObjects(getsynasset("PineAppleSyn.txt"))[1]
+e.Parent=game.CoreGui
+for i,v in pairs(e:GetDescendants()) do
+    if v.ClassName:match("Script") then
+        spawn(wrap(v))
+    end
+end
 elseif KRNL_LOADED then
     exploit_type = "KRNL"
     print("KRNL")
@@ -41,7 +57,7 @@ elseif getexecutorname then
 	exploit_type = "Script-Ware"
     print("Script-Ware")
 -- else
-    -- game.Players.LocalPlayer:Kick("Your executor is not supported!")
+    -- game.Players.LocalPlayer:Kick("Your executor is not supported! Please go to https://alphax.soldr.xyz/supported/ for the list of supported executors.")
     -- error("Executor not Supported!")
 -- end
 end
@@ -55,15 +71,6 @@ if true then
 end
 
 wait(5)
-
-
-
-
-
-
-
-
-
 
 -- // Loadstring
 if game.CoreGui:FindFirstChild("Aux_Pineapple") then
