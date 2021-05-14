@@ -3,7 +3,7 @@
 
 -- Instances:
 
-local Aux_Pineapple = Instance.new("ScreenGui")
+local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local Frame_2 = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
@@ -49,11 +49,11 @@ local TextBox_5 = Instance.new("TextButton")
 
 --Properties:
 
-Aux_Pineapple.Parent = game:WaitForChild("CoreGui")
-Aux_Pineapple.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-Aux_Pineapple.ResetOnSpawn = false
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
 
-Frame.Parent = Aux_Pineapple
+Frame.Parent = ScreenGui
 Frame.AnchorPoint = Vector2.new(0.5, 0.5)
 Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
