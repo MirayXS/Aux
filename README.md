@@ -41,7 +41,7 @@ elseif getexecutorname then
 	exploit_type = "Script-Ware"
     print("Script-Ware")
 -- else
-    -- game.Players.LocalPlayer:Kick("Your executor is not supported! Please go to https://alphax.soldr.xyz/supported/ for the list of supported executors.")
+    -- game.Players.LocalPlayer:Kick("Your executor is not supported!")
     -- error("Executor not Supported!")
 -- end
 end
