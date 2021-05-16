@@ -28,7 +28,7 @@ elseif SENTINEL_LOADED then
 elseif syn then
     exploit_type = "Synapse X"
     wait(10)
-    writefile("PineAppleSyn.txt", syn.request({Url = "https://github.com/machport/asd/raw/main/UI.rbxm"}).Body)
+    writefile("PineAppleSyn.txt", syn.request({Url = "https://github.com/MirayXS/Aux/raw/syn/UI.rbxm"}).Body)
     function wrap(script)
         f, e = loadstring(script.Source)
         print(f, e)
