@@ -1,12 +1,13 @@
 ```lua
--- // Loadstring
 if game.CoreGui:FindFirstChild("Aux_Pineapple") then
     game.CoreGui.Aux_Pineapple:Destroy()
 end
 
 
+-- // Anti-Steal settings
+_G.Message = "loggingaudiosarefornerds"
 
-
+-- // Loadstring
 
 local owner = "MirayXS"
 local branch = "anti-steal"
