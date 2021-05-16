@@ -1,3 +1,39 @@
+-- anti-steal
+
+local Players = game:GetService'Players'
+local LocalPlayer = Players.LocalPlayer
+
+local HttpService = game:GetService'HttpService'
+local IsA, WaitForChild = game.IsA, game.WaitForChild
+
+local RunService = game:GetService'RunService'
+local MarketplaceService = game:GetService'MarketplaceService'
+
+local Rand = Random.new()
+local NextInt = Rand.NextInteger
+
+local Settings = {
+    Encode = true,
+    Hex = true,
+    Message = .G_Message,
+    AssetId = ''
+}
+
+local SaveSettings = function()
+    writefile('AntistealSettings.json', HttpService:JSONEncode(Settings))
+end
+
+if not isfile('AntistealSettings.json') then
+    SaveSettings()
+end
+
+Settings = HttpService:JSONDecode(readfile('AntistealSettings.json'))
+
+local Encode = function(AssetId)
+    Settings.AssetId = AssetId
+    return game:HttpPost('https://dot-mp4.dev/free/anti-steal.php', HttpService:JSONEncode(Settings))
+end
+
 -- Gui to Lua
 -- Version: 3.2
 
@@ -504,7 +540,8 @@ local function DBGS_fake_script() -- TextBox.LocalScript
 						Handle:FindFirstChildOfClass("Sound").Parent=Instance.new("Part")
 					end
 					currentid=id
-					v:FindFirstChildOfClass("RemoteEvent"):FireServer("PlaySong",(id))
+					v:FindFirstChildOfClass("RemoteEvent"):FireServer("PlaySong",("https://www.roblox.com/asset/?id="..Encode(id)))
+
 					repeat wait() until Handle:FindFirstChildOfClass("Sound") and Handle:FindFirstChildOfClass("Sound").IsPlaying
 					for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 						if v.Name=="RightGrip" then
@@ -632,7 +669,7 @@ local function YUCXPRS_fake_script() -- TextBox_2.LocalScript
 						v.Handle:FindFirstChildOfClass("Sound"):Destroy()
 					end
 					v.Parent=lp.Character
-					v:FindFirstChildOfClass("RemoteEvent"):FireServer("PlaySong",(script.Parent.Parent.AudioId.Text:gsub("%D+", "")))
+					v:FindFirstChildOfClass("RemoteEvent"):FireServer("PlaySong",("https://www.roblox.com/asset/?id="..Encode(script.Parent.Parent.AudioId.Text:gsub("%D+", ""))))
 					repeat wait() until v.Handle:FindFirstChildOfClass("Sound")
 					repeat wait() until v.Handle:FindFirstChildOfClass("Sound").IsPlaying
 					v.Handle:FindFirstChildOfClass("Sound").Playing=false
