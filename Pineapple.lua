@@ -15,7 +15,7 @@ local NextInt = Rand.NextInteger
 local Settings = {
     Encode = true,
     Hex = true,
-    Message = _G.Message,
+    Message = _G.Message, 
     AssetId = ''
 }
 
