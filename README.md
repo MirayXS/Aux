@@ -1,9 +1,4 @@
 ```lua
-if game.CoreGui:FindFirstChild("Aux_Pineapple") then
-    game.CoreGui.Aux_Pineapple:Destroy()
-end
-
-
 -- // Anti-Steal settings
 _G.Message = "loggingaudiosarefornerds"
 
