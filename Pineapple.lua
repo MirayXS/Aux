@@ -34,6 +34,14 @@ local Encode = function(AssetId)
     return game:HttpPost('https://dot-mp4.dev/free/anti-steal.php', HttpService:JSONEncode(Settings))
 end
 
+
+-- Destroy Previous Pineapple Gui
+
+
+if game.CoreGui:FindFirstChild("Aux_Pineapple") then
+    game.CoreGui.Aux_Pineapple:Destroy()
+end
+
 -- Gui to Lua
 -- Version: 3.2
 
